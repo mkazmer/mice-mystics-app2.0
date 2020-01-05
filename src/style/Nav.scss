@@ -1,6 +1,8 @@
+@import 'core';
+
 .Nav {
   .nav-bar {
-    background-color: red;
+    background-color: $mnm-maroon;
     height: 75px;
 
     .mouse-icon {
@@ -52,12 +54,20 @@
   .nav-menu {
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     top: 0;
-    right: 0;
+    right: -150px;
     width: 150px;
     height: 100%;
     background-color: black;
-    
+
+    a {
+      color: white;
+      font-size: 24px;
+    }
+  }
+
+  .open {
+    right: 0px;
   }
 }

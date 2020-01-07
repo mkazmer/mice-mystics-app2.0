@@ -1,11 +1,17 @@
+//Variables
 $mnm-tan: rgb(207, 164, 114);
 $mnm-maroon: rgb(139, 34, 34);
+$mnm-white: rgb(240, 238, 230);
+$mnm-gray: rgb(37, 37, 43);
+$mnm-green: rgb(9, 116, 9);
+$font-fam-primary: 'Fondamento', cursive;
+$font-fam-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 
 body {
   margin: 0;
-  font-family:'Fondamento', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: $font-fam-primary, $font-fam-base;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $mnm-tan;

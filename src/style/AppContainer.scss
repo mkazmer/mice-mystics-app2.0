@@ -1,0 +1,11 @@
+.AppContainer {
+  width: 100vw;
+  max-width: 900px;
+  margin: auto;
+  min-height: calc( 100vh - 170px);
+  padding: 10px;
+
+  @media (min-width: 720px) {
+    min-height: calc( 100vh - 95px);
+  }
+}

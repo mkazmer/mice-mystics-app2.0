@@ -8,32 +8,20 @@ const Nav = () => {
 
   return (
     <div className="Nav">
-      <div className="nav-bar">
-        <Link
-          onClick={() => {
-            toggle(false)
-          }}
-          to={{ pathname: '/app' }}
-        >
-          <img className="mouse-icon" alt="Mouse Icon" src={'./images/mouseIcon.png'} />
-        </Link>
-      </div>
-      <button
+      <div
         onClick={() => {
-          toggle(true)
+          toggle(false)
         }}
-        className="hamburger-button"
-      >
-        <div className="hamburger" />
-      </button>
+        className={`gray-mobile-nav-background ${open ? 'mobile-backgound-open' : ''}`}
+      ></div>
       <div className={`nav-menu ${open ? 'open' : ''}`}>
         <Link
           onClick={() => {
             toggle(false)
           }}
-          to={{ pathname: '/app' }}
+          to={{ pathname: '/dashboard' }}
         >
-          App
+          Dashboard
         </Link>
         <Link
           onClick={() => {
@@ -52,6 +40,24 @@ const Nav = () => {
           Home
         </Link>
       </div>
+      <div className="nav-bar">
+        <Link
+          onClick={() => {
+            toggle(false)
+          }}
+          to={{ pathname: '/app' }}
+        >
+          <img className="mouse-icon" alt="Mouse Icon" src={'./images/mouseIcon.png'} />
+        </Link>
+      </div>
+      <button
+        onClick={() => {
+          toggle(!open)
+        }}
+        className="hamburger-button"
+      >
+        <div className={`hamburger ${open ? 'close-x' : ''}`} />
+      </button>
     </div>
   )
 }

@@ -1,0 +1,57 @@
+@import 'src/style/core.scss';
+
+.ButtonContainer {
+  max-width: 350px;
+  margin: auto;
+  background-color: darken($mnm-tan, 2%);
+  border: solid lighten($mnm-gray, 30%) 1px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(128, 128, 128, .8);
+
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+
+    button {
+      width: 100px;
+      height: 40px;;
+      margin: 10px 0;
+      color: $mnm-white;
+      font-size: 14px;
+      font-weight: 600;
+      background-color: lighten($mnm-gray, 20%);
+      border: solid $mnm-gray 1px;
+      border-radius: 3px;
+      box-shadow: 1px 1px 1px rgba(128, 128, 128, .8);
+
+      div {
+        font-weight: 900;
+        text-shadow:
+        -1px -1px 0 $mnm-white,  
+         1px -1px 0 $mnm-white,
+         -1px 1px 0 $mnm-white,
+          1px 1px 0 $mnm-white;
+      }
+
+      .movement {
+        color: $mnm-green;
+      }
+
+      .attack {
+        color: $mnm-maroon;
+      }
+
+      .defense {
+        color: $mnm-blue;
+      }
+
+      .creature {
+        color: darken($mnm-tan, 30%);
+      }
+
+      .defeat-all {
+        color: black;
+      }
+    }
+  }
+}

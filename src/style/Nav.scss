@@ -11,8 +11,9 @@
     flex-direction: column;
     width: 0px;
     height: 100vh;
+    z-index: 1;
     background-color: $mnm-gray;
-    transition: width .4s;
+    transition: width .3s;
 
     a {
       position: relative;
@@ -75,9 +76,10 @@
 
   // HAMBURGER
   .hamburger-button {
-    position: fixed;
-    top: 10px;
-    right: 10px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 10px 15px;
     height: 50px;
     background: none;
     border: none;
@@ -132,11 +134,12 @@
   }
 }
 
-@media (min-width: 720px) {
+@media (min-width: 600px) {
   .Nav {
     height: 0;
     
     .nav-bar {
+      position: fixed;
       width: 150px;
       height: 100vh;
       z-index: -1;

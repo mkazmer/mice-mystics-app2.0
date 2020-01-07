@@ -45,7 +45,7 @@ const Nav = () => {
           onClick={() => {
             toggle(false)
           }}
-          to={{ pathname: '/app' }}
+          to={{ pathname: '/dashboard' }}
         >
           <img className="mouse-icon" alt="Mouse Icon" src={'./images/mouseIcon.png'} />
         </Link>

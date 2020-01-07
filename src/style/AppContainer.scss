@@ -1,11 +1,16 @@
 .AppContainer {
-  width: 100vw;
-  max-width: 900px;
-  margin: auto;
+  width: calc(100vw - 20px);
+  max-width: 1200px;
   min-height: calc( 100vh - 170px);
   padding: 10px;
 
-  @media (min-width: 720px) {
+  @media (min-width: 600px) {
+    width: calc(100vw - 170px);
+    margin-left: 150px;
     min-height: calc( 100vh - 95px);
+  }
+
+  @media (min-width: 1370px) {
+    margin-left: calc(((100vw - 1370px) / 2) + 150px)
   }
 }

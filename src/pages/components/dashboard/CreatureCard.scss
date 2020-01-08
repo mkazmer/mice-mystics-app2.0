@@ -1,38 +1,67 @@
+@import 'src/style/core';
+
 .CreatureCard {
   margin: 5px;
+
+  text-shadow:
+        -1px -1px 0 $mnm-gray,  
+         1px -1px 0 $mnm-gray,
+         -1px 1px 0 $mnm-gray,
+          1px 1px 0 $mnm-gray;
 
   h5 {
     margin: 0;
   }
 
   .info-container {
-    padding: 10px;
+    padding: 6px;
     border-radius: 8px;
-    width: 145px;
-    height: 275px;
+    width: 155px;
+    height: 280px;
     background-size: cover !important;
-    opacity: 0.8;
+    opacity: 0.9;
     box-shadow: 2px 2px 4px rgba(99, 99, 99, 0.75);
 
     * {
       opacity: 1;
-      color: white;
+      color: $mnm-white;
     }
 
     .name-container {
       display: flex;
+      position: relative;
       justify-content: space-between;
+      text-align: left;
       height: 25%;
 
       .name {
+        width: 85px;
         font-size: 22px;
         font-weight: 600;
+        line-height: 1.2;
       }
 
       .defeat-button {
-        height: 20px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 18px;
         background: none;
         box-shadow: 2px 2px 4px rgba(99, 99, 99, 0.75);
+      }
+
+      .creature-details {
+        text-align: right;
+        margin-top: 24px;
+
+        .id {
+          font-family: $font-fam-base;
+        }
+
+        .abilities {
+          margin-top: 10px;
+          line-height: 1.2;
+        }
       }
     }
 

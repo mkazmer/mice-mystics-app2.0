@@ -4,7 +4,6 @@
 export const minionsMasterList = () => {
   return [
     {
-      id: 'roach',
       name: 'Roach',
       image: 'roach.jpg',
       maxNum: 8,
@@ -24,7 +23,6 @@ export const minionsMasterList = () => {
       isGreedy: false
     },
     {
-      id: 'rat',
       name: 'Rat Warrior',
       image: 'rat_warrior.jpg',
       maxNum: 6,
@@ -43,7 +41,6 @@ export const minionsMasterList = () => {
       canBeGreedy: false
     },
     {
-      id: 'eliteRat',
       name: 'Elite Rat Warrior',
       image: 'elite_rat.jpg',
       maxNum: 5,
@@ -62,7 +59,6 @@ export const minionsMasterList = () => {
       canBeGreedy: false
     },
     {
-      id: 'spider',
       name: 'Spider',
       image: 'spider.jpg',
       maxNum: 1,
@@ -80,7 +76,6 @@ export const minionsMasterList = () => {
       canBeGreedy: false
     },
     {
-      id: 'centipede',
       name: 'Cave Centipede',
       image: 'centipede.jpg',
       maxNum: 1,
@@ -105,7 +100,6 @@ export const minionsMasterList = () => {
 export const bossMasterList = () => {
   return [
     {
-      id: '1',
       name: 'Brodie',
       image: 'brodie.jpg',
       maxNum: 1,
@@ -145,7 +139,6 @@ export const bossMasterList = () => {
       ]
     },
     {
-      id: '2',
       name: 'Captain Vurst',
       image: 'vurst.jpg',
       maxNum: 1,
@@ -169,7 +162,6 @@ export const bossMasterList = () => {
       ]
     },
     {
-      id: '3',
       name: 'Skitter-Clak',
       image: 'skitter_clak.jpg',
       maxNum: 1,
@@ -197,7 +189,6 @@ export const bossMasterList = () => {
       ]
     },
     {
-      id: '4',
       name: 'Vanestra',
       image: 'vanestra.jpg',
       maxNum: 1,

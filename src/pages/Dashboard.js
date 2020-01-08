@@ -4,13 +4,14 @@ import ButtonContainer from './components/dashboard/ButtonContainer'
 import CreatureCard from './components/dashboard/CreatureCard'
 import './Dashboard.scss'
 
-let creatureId = 0
+let minionId = 0
+let bossId = 0
 
 class Dashboard extends Component {
   state = {
     activeCreatures: {
-      'roach-1': {
-        id: 'roach-1',
+      'minion-1': {
+        id: 'minion-1',
         name: 'Roach',
         image: 'roach.jpg',
         maxNum: 8,
@@ -29,8 +30,8 @@ class Dashboard extends Component {
         canBeGreedy: true,
         isGreedy: false
       },
-      'roach-2': {
-        id: 'roach-2',
+      'minion-2': {
+        id: 'minion-2',
         name: 'Roach',
         image: 'roach.jpg',
         maxNum: 8,
@@ -49,85 +50,83 @@ class Dashboard extends Component {
         canBeGreedy: true,
         isGreedy: false
       },
-      'roach-3': {
-        id: 'roach-1',
-        name: 'Roach',
-        image: 'roach.jpg',
-        maxNum: 8,
+      'minion-3': {
+        id: 'minion-34',
+        name: 'Elite Rat Warrior',
+        image: 'elite_rat.jpg',
+        maxNum: 5,
         health: 1,
-        attack: 'melee',
+        attack: 'ranged',
         movementRoll: [null],
-        attackRoll: ['none', 'none'],
-        defenseRoll: ['none'],
+        attackRoll: ['none', 'none', 'none'],
+        defenseRoll: ['none', 'none'],
         abilities: [
           {
-            title: 'Steal',
+            title: 'Aggressive',
             text:
-              "When a Roach wounds a mouse, instead of placing wound markers, remove 1 cheese from that mouse's stash for each wound inflicted. If that mouse has no cheese, place wound markers as usual."
+              'After taking a turn with this Rat Warrior card, switch this card with the one directly above it on theinitiative track (if any).'
           }
         ],
-        canBeGreedy: true,
-        isGreedy: false
+        canBeGreedy: false
       },
-      'roach-4': {
-        id: 'roach-2',
-        name: 'Roach',
-        image: 'roach.jpg',
-        maxNum: 8,
+      'minion-4': {
+        id: 'minion-4',
+        name: 'Rat Warrior',
+        image: 'rat_warrior.jpg',
+        maxNum: 6,
         health: 1,
         attack: 'melee',
         movementRoll: [null],
         attackRoll: ['none', 'none'],
-        defenseRoll: ['none'],
+        defenseRoll: ['none', 'none'],
         abilities: [
           {
-            title: 'Steal',
+            title: 'Aggressive',
             text:
-              "When a Roach wounds a mouse, instead of placing wound markers, remove 1 cheese from that mouse's stash for each wound inflicted. If that mouse has no cheese, place wound markers as usual."
+              'After taking a turn with this Rat Warrior card, switch this card with the one directly above it on theinitiative track (if any).'
           }
         ],
-        canBeGreedy: true,
-        isGreedy: false
+        canBeGreedy: false
       },
-      'roach-5': {
-        id: 'roach-1',
-        name: 'Roach',
-        image: 'roach.jpg',
-        maxNum: 8,
+      'minion-5': {
+        id: 'minion-5',
+        name: 'Rat Warrior',
+        image: 'rat_warrior.jpg',
+        maxNum: 6,
         health: 1,
         attack: 'melee',
         movementRoll: [null],
         attackRoll: ['none', 'none'],
-        defenseRoll: ['none'],
+        defenseRoll: ['none', 'none'],
         abilities: [
           {
-            title: 'Steal',
+            title: 'Aggressive',
             text:
-              "When a Roach wounds a mouse, instead of placing wound markers, remove 1 cheese from that mouse's stash for each wound inflicted. If that mouse has no cheese, place wound markers as usual."
+              'After taking a turn with this Rat Warrior card, switch this card with the one directly above it on theinitiative track (if any).'
           }
         ],
-        canBeGreedy: true,
-        isGreedy: false
+        canBeGreedy: false
       },
-      'roach-6': {
-        id: 'roach-2',
-        name: 'Roach',
-        image: 'roach.jpg',
-        maxNum: 8,
-        health: 1,
+      'boss-1': {
+        id: 'boss-1A',
+        name: 'Skitter-Clak',
+        image: 'skitter_clak.jpg',
+        health: 3,
         attack: 'melee',
         movementRoll: [null],
         attackRoll: ['none', 'none'],
-        defenseRoll: ['none'],
+        defenseRoll: ['none', 'none'],
         abilities: [
           {
-            title: 'Steal',
+            title: 'Constrict',
+            text: 'Mice cannot roll to defend against Skitter-Clak'
+          },
+          {
+            title: 'Carapace',
             text:
-              "When a Roach wounds a mouse, instead of placing wound markers, remove 1 cheese from that mouse's stash for each wound inflicted. If that mouse has no cheese, place wound markers as usual."
+              'When Skitter-Clak rolls defense, all shields with success star rolled count as 2 successfull blocks'
           }
-        ],
-        canBeGreedy: true,
-        isGreedy: false
+        ]
       }
     }
   }

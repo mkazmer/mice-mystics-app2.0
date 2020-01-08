@@ -1,0 +1,20 @@
+@import 'src/style/core';
+
+.Ability {
+  .ability-description {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 6px;
+    width: 140px;
+    padding: 10px;
+    background-color: darken($mnm-gray, 20%);
+    border-radius: 5px;
+  }
+
+  &:hover {
+    .ability-description {
+      display: block;
+    }
+  }
+}

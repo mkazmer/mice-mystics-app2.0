@@ -2,6 +2,7 @@ import React from 'react'
 
 import RenderMovementDice from '../dice/RenderMovementDice'
 import RenderActionDice from '../dice/RenderActionDice'
+import Ability from './Ability'
 import './CreatureCard.scss'
 
 const CreatureCard = ({ creature }) => {
@@ -15,11 +16,18 @@ const CreatureCard = ({ creature }) => {
         }}
       >
         <div className="name-container">
-          <div>
-            <div className="name">{creature.name}</div>
-            <h5 className="id">{creature.id}</h5>
+          <div className="name">
+            <div>{creature.name}</div>
+            <button className="defeat-button">X</button>
           </div>
-          <button className="defeat-button">Defeat</button>
+          <div className="creature-details">
+            <h5 className="id">{creature.id}</h5>
+            <div className="abilities">
+              {creature.abilities.map(a => {
+                return <Ability ability={a} />
+              })}
+            </div>
+          </div>
         </div>
         <div className="info">
           <h5>Movement</h5>

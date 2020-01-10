@@ -24,7 +24,7 @@ const ButtonContainer = () => {
           Add <div className="creature">Boss</div>
         </button>
         <button>
-          <div className="defeat-all">Defeat All</div>
+          <div className="defeat-all">Clear Rolls</div>
         </button>
       </div>
     </div>

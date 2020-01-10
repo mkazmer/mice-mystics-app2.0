@@ -4,9 +4,10 @@
   .ability-description {
     display: none;
     position: absolute;
+    text-align: center;
     top: 20px;
     right: 6px;
-    width: 140px;
+    width: 150px;
     padding: 10px;
     background-color: darken($mnm-gray, 20%);
     border-radius: 5px;

@@ -52,14 +52,14 @@
 
       .creature-details {
         text-align: right;
-        margin-top: 24px;
+        margin-top: 34px;
 
         .id {
           font-family: $font-fam-base;
         }
 
         .abilities {
-          margin-top: 10px;
+          margin-top: 4px;
           line-height: 1.2;
         }
       }
@@ -69,7 +69,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      margin-top: 15px;
+      margin-top: 14px;
 
       .action-die-button {
         padding: 0; 
@@ -93,8 +93,8 @@
         background-color: rgb(253, 246, 215);
         text-align: center;
         margin: 0 2px;
-        height: 30px;
-        width: 30px;
+        height: 32px;
+        width: 32px;
         float: right;
       }
     }

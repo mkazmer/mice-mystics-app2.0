@@ -1,11 +1,22 @@
 @import 'src/style/core.scss';
 
 .Dashboard {
+  display: flex;
+  flex-direction: column;
 
   .creature-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }  
+}
+
+@media (min-width: 600px) {
+  .Dashboard {
+    flex-direction: row-reverse;
+
+    .creature-container {
+      margin-right: 150px;
+    }
   }
-  
 }

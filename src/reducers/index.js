@@ -3,7 +3,7 @@ import { minionsMasterList, bossMasterList } from './creatureLists'
 
 //REDUCERS
 
-const activeCreaturesReducer = (activeCreatures, action) => {
+const activeCreaturesReducer = (activeCreatures = [], action) => {
   if (action.type === 'ADD_CREATURES') {
     return [].concat(activeCreatures, action.payload)
   } else if (action.type === 'REMOVE_CREATURES') {

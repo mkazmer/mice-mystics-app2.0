@@ -6,7 +6,6 @@ import Ability from './Ability'
 import './CreatureCard.scss'
 
 const CreatureCard = ({ creature }) => {
-  console.log(creature)
   return (
     <div className="CreatureCard">
       <div
@@ -24,7 +23,7 @@ const CreatureCard = ({ creature }) => {
             <h5 className="id">{creature.id}</h5>
             <div className="abilities">
               {creature.abilities.map(a => {
-                return <Ability ability={a} />
+                return <Ability key={a.title} ability={a} />
               })}
             </div>
           </div>

@@ -8,7 +8,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-  }  
+  }
+
+  .addMinsOpen {
+    min-height: 1000px
+  }
 }
 
 @media (min-width: 600px) {

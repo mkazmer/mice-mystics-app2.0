@@ -2,7 +2,7 @@ import React from 'react'
 
 import './ButtonContainer.scss'
 
-const ButtonContainer = () => {
+const ButtonContainer = ({ openCloseCreatureEdit }) => {
   return (
     <div className="ButtonContainer">
       <div className="buttons rolls">
@@ -17,10 +17,18 @@ const ButtonContainer = () => {
         </button>
       </div>
       <div className="buttons adds">
-        <button>
+        <button
+          onClick={() => {
+            openCloseCreatureEdit('addMinions', true)
+          }}
+        >
           Add <div className="creature">Minion</div>
         </button>
-        <button>
+        <button
+          onClick={() => {
+            openCloseCreatureEdit('addBoss', true)
+          }}
+        >
           Add <div className="creature">Boss</div>
         </button>
         <button>

@@ -6,9 +6,10 @@ import Ability from './Ability'
 import './CreatureCard.scss'
 
 const CreatureCard = ({ creature }) => {
+  console.log(creature)
   return (
     <div className="CreatureCard">
-      <div
+      {/* <div
         className="info-container"
         style={{
           background: `url(/images/creatures/${creature.image})`
@@ -51,7 +52,7 @@ const CreatureCard = ({ creature }) => {
             <RenderActionDice rolls={creature.defenseRoll} type="defense" />
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -1,0 +1,51 @@
+@import 'src/style/core';
+
+.MinionsAdd {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  .minions-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative;
+    width: 80%;
+    margin: 30px auto;
+    background-color: $mnm-tan;
+    border-radius: 8px;
+
+    .minion {
+      display: flex;
+      width: 200px;
+      height: 90px;
+      margin: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: darken($mnm-tan, 4%);
+      box-shadow: 2px 2px 4px rgba(99, 99, 99, 0.5);
+
+      .minion-img {
+        width: 60px;
+        height: 90px;
+      }
+
+      .minion-info {
+        display: flex;
+        flex-direction: column;
+
+        .minion-qty {
+          display: flex;
+          .inc-dec-buttons {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+      }
+    }
+  }
+}

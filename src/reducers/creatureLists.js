@@ -2,8 +2,9 @@
 
 //Minions
 export const minionsMasterList = () => {
-  return [
-    {
+  return {
+    roach: {
+      id: 'roach',
       name: 'Roach',
       image: 'roach.jpg',
       maxNum: 8,
@@ -22,7 +23,8 @@ export const minionsMasterList = () => {
       canBeGreedy: true,
       isGreedy: false
     },
-    {
+    rat_warrior: {
+      id: 'rat_warrior',
       name: 'Rat Warrior',
       image: 'rat_warrior.jpg',
       maxNum: 6,
@@ -40,7 +42,8 @@ export const minionsMasterList = () => {
       ],
       canBeGreedy: false
     },
-    {
+    elite_rat_warrior: {
+      id: 'elite_rat_warrior',
       name: 'Elite Rat Warrior',
       image: 'elite_rat.jpg',
       maxNum: 5,
@@ -58,7 +61,8 @@ export const minionsMasterList = () => {
       ],
       canBeGreedy: false
     },
-    {
+    spider: {
+      id: 'spider',
       name: 'Spider',
       image: 'spider.jpg',
       maxNum: 1,
@@ -75,7 +79,8 @@ export const minionsMasterList = () => {
       ],
       canBeGreedy: false
     },
-    {
+    cave_centipede: {
+      id: 'cave_centipede',
       name: 'Cave Centipede',
       image: 'centipede.jpg',
       maxNum: 1,
@@ -93,13 +98,14 @@ export const minionsMasterList = () => {
       ],
       canBeGreedy: false
     }
-  ]
+  }
 }
 
 //Bosses
 export const bossMasterList = () => {
-  return [
-    {
+  return {
+    brodie: {
+      id: 'brodie',
       name: 'Brodie',
       image: 'brodie.jpg',
       maxNum: 1,
@@ -138,7 +144,8 @@ export const bossMasterList = () => {
         }
       ]
     },
-    {
+    captain_vurst: {
+      id: 'captain_vurst',
       name: 'Captain Vurst',
       image: 'vurst.jpg',
       maxNum: 1,
@@ -161,7 +168,8 @@ export const bossMasterList = () => {
         }
       ]
     },
-    {
+    skitter_clak: {
+      id: 'skitter_clak',
       name: 'Skitter-Clak',
       image: 'skitter_clak.jpg',
       maxNum: 1,
@@ -188,7 +196,8 @@ export const bossMasterList = () => {
         }
       ]
     },
-    {
+    vanestra: {
+      id: 'vanestra',
       name: 'Vanestra',
       image: 'vanestra.jpg',
       maxNum: 1,
@@ -258,5 +267,5 @@ export const bossMasterList = () => {
         }
       ]
     }
-  ]
+  }
 }

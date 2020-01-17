@@ -24,15 +24,18 @@ class Dashboard extends Component {
   }
 
   addCreaturesToDash = (toAdd, type) => {
+    const creatures = Object.values(toAdd).reduce((prev, cur) => {
+      for (let i = 0; i < cur.qty; i++) {
+        type === 'minion' ? minionId++ : bossId++
+        let count = 0
+        type === 'minion' ? (count = minionId) : (count = bossId)
+        prev[`${type}-${count}`] = this.props.minionsMaster[`${cur.id}`]
+        prev[`${type}-${count}`].id = `${type}-${count}`
+      }
+      return prev
+    }, this.state.activeCreatures)
     this.setState({
-      activeCreatures: Object.values(toAdd).reduce(
-        (prev, cur) => {
-          minionId++
-          const creature = this.props.minionsMaster[`${cur.id}`]
-          return { ...prev, [`${type}-${minionId}`]: { ...creature, id: `${type}-${minionId}` } }
-        },
-        { ...this.state.activeCreatures }
-      )
+      activeCreatures: creatures
     })
   }
 
@@ -51,6 +54,7 @@ class Dashboard extends Component {
           <BossAdd
             minionsMaster={this.props.bossMaster}
             openCloseCreatureEdit={this.openCloseCreatureEdit}
+            addCreaturesToDash={this.addCreaturesToDash}
           />
         ) : null}
         <div className="creature-container">

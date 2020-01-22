@@ -17,12 +17,7 @@ const initializeCount = minionsMaster => {
   return count
 }
 
-const MinionsAdd = ({
-  minionsMaster,
-  openCloseCreatureEdit,
-  addCreaturesToDash,
-  activeCreatures
-}) => {
+const MinionsAdd = ({ minionsMaster, openCloseCreatureEdit, addCreaturesToDash }) => {
   const [creatureCount, updateCount] = useState(initializeCount(minionsMaster))
 
   const incrementQyt = (id, max) => {
@@ -51,39 +46,45 @@ const MinionsAdd = ({
 
   return (
     <div className="MinionsAdd">
-      <div className="minions-container">
-        {Object.keys(creatureCount).map(minId => {
-          const m = creatureCount[minId]
-          return (
-            <div className="minion" key={minId}>
-              <img className="minion-img" alt={m.image} src={`/images/creatures/${m.image}`}></img>
-              <div className="minion-info">
-                <div className="minion-name">{m.name}</div>
-                <div className="minion-qty">
-                  <div className="inc-dec-buttons">
-                    <button
-                      className="increment-minion"
-                      onClick={() => {
-                        incrementQyt(minId, m.maxNum)
-                      }}
-                    >
-                      +
-                    </button>
-                    <button
-                      className="decrement-minion"
-                      onClick={() => {
-                        decrementQyt(minId)
-                      }}
-                    >
-                      -
-                    </button>
+      <div className="container">
+        <div className="minions-container">
+          {Object.keys(creatureCount).map(minId => {
+            const m = creatureCount[minId]
+            return (
+              <div className="minion" key={minId}>
+                <img
+                  className="minion-img"
+                  alt={m.image}
+                  src={`/images/creatures/${m.image}`}
+                ></img>
+                <div className="minion-info">
+                  <div className="minion-name">{m.name}</div>
+                  <div className="minion-qty">
+                    <div className="inc-dec-buttons">
+                      <button
+                        className="increment-minion"
+                        onClick={() => {
+                          incrementQyt(minId, m.maxNum)
+                        }}
+                      >
+                        +
+                      </button>
+                      <button
+                        className="decrement-minion"
+                        onClick={() => {
+                          decrementQyt(minId)
+                        }}
+                      >
+                        -
+                      </button>
+                    </div>
+                    <div className="qty-value">{m.qty}</div>
                   </div>
-                  <div className="qty-value">{m.qty}</div>
                 </div>
               </div>
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
         <div className="button-container">
           <button
             onClick={() => {

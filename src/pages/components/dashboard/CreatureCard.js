@@ -5,7 +5,7 @@ import RenderActionDice from '../dice/RenderActionDice'
 import Ability from './Ability'
 import './CreatureCard.scss'
 
-const CreatureCard = ({ creature }) => {
+const CreatureCard = ({ creature, removeCreature }) => {
   console.log(creature)
   return (
     <div className="CreatureCard">
@@ -18,7 +18,9 @@ const CreatureCard = ({ creature }) => {
         <div className="name-container">
           <div className="name">
             <div>{creature.name}</div>
-            <button className="defeat-button">X</button>
+            <button className="defeat-button" onClick={() => removeCreature(creature.id)}>
+              X
+            </button>
           </div>
           <div className="creature-details">
             <h5 className="id">{creature.id}</h5>

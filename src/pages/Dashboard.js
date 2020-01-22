@@ -27,16 +27,20 @@ class Dashboard extends Component {
     const creatures = Object.values(toAdd).reduce((prev, cur) => {
       for (let i = 0; i < cur.qty; i++) {
         type === 'minion' ? minionId++ : bossId++
-        let count = 0
-        type === 'minion' ? (count = minionId) : (count = bossId)
-        prev[`${type}-${count}`] = this.props.minionsMaster[`${cur.id}`]
-        prev[`${type}-${count}`].id = `${type}-${count}`
+        let id = ''
+        type === 'minion' ? (id = `${type}-${minionId}`) : (id = `${type}-${bossId}`)
+        prev[id] = { ...this.props.minionsMaster[`${cur.id}`], id: id }
       }
       return prev
     }, this.state.activeCreatures)
+
     this.setState({
       activeCreatures: creatures
     })
+  }
+
+  removeCreature = id => {
+    console.log(id)
   }
 
   render() {
@@ -48,11 +52,12 @@ class Dashboard extends Component {
             minionsMaster={this.props.minionsMaster}
             openCloseCreatureEdit={this.openCloseCreatureEdit}
             addCreaturesToDash={this.addCreaturesToDash}
+            removeCreature={this.removeCreature}
           />
         ) : null}
         {this.state.addBoss ? (
           <BossAdd
-            minionsMaster={this.props.bossMaster}
+            bossMaster={this.props.bossMaster}
             openCloseCreatureEdit={this.openCloseCreatureEdit}
             addCreaturesToDash={this.addCreaturesToDash}
           />
@@ -60,7 +65,9 @@ class Dashboard extends Component {
         <div className="creature-container">
           {Object.keys(this.state.activeCreatures).map(cId => {
             const creature = this.state.activeCreatures[cId]
-            return <CreatureCard key={cId} creature={creature} />
+            return (
+              <CreatureCard key={cId} creature={creature} removeCreature={this.removeCreature} />
+            )
           })}
         </div>
         <button onClick={() => console.log(this.state)}>Press</button>

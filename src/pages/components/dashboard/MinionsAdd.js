@@ -17,7 +17,7 @@ const initializeCount = minionsMaster => {
   return count
 }
 
-const MinionsAdd = ({ minionsMaster, openCloseCreatureEdit, addCreaturesToDash }) => {
+const MinionsAdd = ({ minionsMaster, openCloseCreatureEdit, addMinionsToDash }) => {
   const [creatureCount, updateCount] = useState(initializeCount(minionsMaster))
 
   const incrementQyt = (id, max) => {
@@ -88,7 +88,7 @@ const MinionsAdd = ({ minionsMaster, openCloseCreatureEdit, addCreaturesToDash }
         <div className="button-container">
           <button
             onClick={() => {
-              addCreaturesToDash(creatureCount, 'minion')
+              addMinionsToDash(creatureCount, 'minion')
               openCloseCreatureEdit('addMinions', false)
             }}
           >

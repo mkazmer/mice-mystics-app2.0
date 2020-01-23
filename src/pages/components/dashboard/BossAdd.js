@@ -10,32 +10,31 @@ const initializeCount = bossMaster => {
     count[id] = {
       id: minId,
       name: bossMaster[minId].name,
-      image: bossMaster[minId].image,
-      qty: 0,
-      maxNum: bossMaster[minId].maxNum
+      image: bossMaster[minId].image
     }
   })
   return count
 }
 
 const BossAdd = ({ bossMaster, openCloseCreatureEdit, addCreaturesToDash, activeCreatures }) => {
-  const [creatureCount, updateCount] = useState(initializeCount(bossMaster))
-  console.log(bossMaster)
+  const [creatureCount] = useState(initializeCount(bossMaster))
+
   return (
     <div className="MinionsAdd">
       <div className="container">
         <div className="minions-container">
-          {Object.keys(creatureCount).map(minId => {
-            const m = creatureCount[minId]
+          {Object.keys(creatureCount).map(bossId => {
+            const b = creatureCount[bossId]
+            console.log(b)
             return (
-              <div className="minion" key={minId}>
+              <div className="minion" key={bossId}>
                 <img
                   className="minion-img"
-                  alt={m.image}
-                  src={`/images/creatures/${m.image}`}
+                  alt={b.image}
+                  src={`/images/creatures/${b.image}`}
                 ></img>
                 <div className="minion-info">
-                  <div className="minion-name">{m.name}</div>
+                  <div className="minion-name">{b.name}</div>
                   <div className="minion-qty">
                     <div className="inc-dec-buttons">
                       <button className="add-button">Add</button>

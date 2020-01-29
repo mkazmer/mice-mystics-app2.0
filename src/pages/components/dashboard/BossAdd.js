@@ -4,13 +4,17 @@ import './BossAdd.scss'
 
 const initializeCount = bossMaster => {
   const count = {}
-  console.log(bossMaster)
   Object.keys(bossMaster).forEach(minId => {
     const id = minId
+    const initiativeCards = bossMaster[minId].initiativeCards.reduce((prev, cur) => {
+      return { ...prev, [`${cur.name}`]: cur }
+    }, {})
+
     count[id] = {
       id: minId,
       name: bossMaster[minId].name,
-      image: bossMaster[minId].image
+      image: bossMaster[minId].image,
+      initiativeCards: initiativeCards
     }
   })
   return count
@@ -25,7 +29,6 @@ const BossAdd = ({ bossMaster, openCloseCreatureEdit, addCreaturesToDash, active
         <div className="minions-container">
           {Object.keys(creatureCount).map(bossId => {
             const b = creatureCount[bossId]
-            console.log(b)
             return (
               <div className="minion" key={bossId}>
                 <img

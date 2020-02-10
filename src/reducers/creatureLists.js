@@ -111,6 +111,7 @@ export const bossMasterList = () => {
       maxNum: 1,
       initiativeCards: [
         {
+          id: 'brodie_chases',
           name: 'Brodie Chases',
           image: 'brodie.jpg',
           health: 1,
@@ -127,6 +128,7 @@ export const bossMasterList = () => {
           ]
         },
         {
+          id: 'brodie_pounces',
           name: 'Brodie Pounces',
           image: 'brodie.jpg',
           health: 1,
@@ -151,6 +153,7 @@ export const bossMasterList = () => {
       maxNum: 1,
       initiativeCards: [
         {
+          id: 'captain_vurst',
           name: 'Captain Vurst',
           image: 'vurst.jpg',
           health: 3,
@@ -175,6 +178,7 @@ export const bossMasterList = () => {
       maxNum: 1,
       initiativeCards: [
         {
+          id: 'skitter_clak',
           name: 'Skitter-Clak',
           image: 'skitter_clak.jpg',
           health: 3,
@@ -203,6 +207,7 @@ export const bossMasterList = () => {
       maxNum: 1,
       initiativeCards: [
         {
+          id: 'vanestra_charm',
           name: "Vanestra's Charm",
           image: 'vanestra.jpg',
           health: 1,
@@ -219,6 +224,7 @@ export const bossMasterList = () => {
           ]
         },
         {
+          id: 'vanestra_sting',
           name: "Vanestra's Sting",
           image: 'vanestra.jpg',
           health: 1,
@@ -234,6 +240,7 @@ export const bossMasterList = () => {
           ]
         },
         {
+          id: 'vanestra_web',
           name: "Vanestra's Web",
           image: 'vanestra.jpg',
           health: 1,
@@ -250,6 +257,7 @@ export const bossMasterList = () => {
           ]
         },
         {
+          id: 'vanestra_call',
           name: "Vanestra's Call",
           image: 'vanestra.jpg',
           health: 1,

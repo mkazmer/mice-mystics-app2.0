@@ -17,10 +17,11 @@ const initializeCount = bossMaster => {
       initiativeCards: initiativeCards
     }
   })
+  console.log(count)
   return count
 }
 
-const BossAdd = ({ bossMaster, openCloseCreatureEdit, addCreaturesToDash, activeCreatures }) => {
+const BossAdd = ({ bossMaster, openCloseCreatureEdit, addBossToDash, activeCreatures }) => {
   const [creatureCount] = useState(initializeCount(bossMaster))
 
   return (
@@ -40,7 +41,15 @@ const BossAdd = ({ bossMaster, openCloseCreatureEdit, addCreaturesToDash, active
                   <div className="minion-name">{b.name}</div>
                   <div className="minion-qty">
                     <div className="inc-dec-buttons">
-                      <button className="add-button">Add</button>
+                      <button
+                        className="add-button"
+                        onClick={() => {
+                          addBossToDash(b)
+                          openCloseCreatureEdit('addBoss', false)
+                        }}
+                      >
+                        Add
+                      </button>
                     </div>
                   </div>
                 </div>

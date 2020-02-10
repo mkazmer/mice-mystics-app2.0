@@ -42,6 +42,14 @@ class Dashboard extends Component {
 
   addBossToDash = toAdd => {
     bossId++
+    const boss = Object.values(toAdd.initiativeCards).reduce((prev, cur) => {
+      console.log(this.props.bossMaster[`${toAdd.id}`])
+      prev[`${cur.id}-${bossId}`] = {
+        id: `${cur.id}-${bossId}`
+      }
+      return prev
+    }, this.state.activeCreatures)
+    console.log(boss)
   }
 
   removeCreature = id => {
@@ -65,7 +73,7 @@ class Dashboard extends Component {
           <BossAdd
             bossMaster={this.props.bossMaster}
             openCloseCreatureEdit={this.openCloseCreatureEdit}
-            addCreaturesToDash={this.addCreaturesToDash}
+            addBossToDash={this.addBossToDash}
           />
         ) : null}
         <div className="creature-container">

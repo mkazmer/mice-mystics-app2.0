@@ -28,6 +28,5 @@ export const rollDefense = isSkitterClak => {
   } else if (roll === 1 || roll === 2) {
     return 'shield'
   }
-
   return 'blank'
 }

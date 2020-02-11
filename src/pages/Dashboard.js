@@ -5,6 +5,7 @@ import ButtonContainer from './components/dashboard/ButtonContainer'
 import MinionsAdd from './components/dashboard/MinionsAdd'
 import BossAdd from './components/dashboard/BossAdd'
 import CreatureCard from './components/dashboard/CreatureCard'
+import { rollMovement, rollAttack, rollDefense } from './components/dice/CalculateDice'
 import './Dashboard.scss'
 
 let minionId = 0
@@ -42,19 +43,32 @@ class Dashboard extends Component {
 
   addBossToDash = toAdd => {
     bossId++
-    const boss = Object.values(toAdd.initiativeCards).reduce((prev, cur) => {
-      console.log(this.props.bossMaster[`${toAdd.id}`])
+    Object.values(toAdd.initiativeCards).reduce((prev, cur, i) => {
       prev[`${cur.id}-${bossId}`] = {
-        id: `${cur.id}-${bossId}`
+        ...this.props.bossMaster[`${toAdd.id}`].initiativeCards[i],
+        id: `${cur.id}-${bossId}`,
+        isBoss: true
       }
       return prev
     }, this.state.activeCreatures)
-    console.log(boss)
   }
 
   removeCreature = id => {
     delete this.state.activeCreatures[id]
     this.setState(this.state)
+  }
+
+  updateMovement = id => {
+    const roll = rollMovement
+    this.setState({
+      activeCreatures: {
+        [`${id}`]: {
+          ...this.state.activeCreatures[`${id}`],
+          movementRoll: roll
+        }
+      }
+    })
+    console.log(this.state)
   }
 
   render() {
@@ -80,7 +94,12 @@ class Dashboard extends Component {
           {Object.keys(this.state.activeCreatures).map(cId => {
             const creature = this.state.activeCreatures[cId]
             return (
-              <CreatureCard key={cId} creature={creature} removeCreature={this.removeCreature} />
+              <CreatureCard
+                key={cId}
+                creature={creature}
+                removeCreature={this.removeCreature}
+                updateMovement={this.updateMovement}
+              />
             )
           })}
         </div>

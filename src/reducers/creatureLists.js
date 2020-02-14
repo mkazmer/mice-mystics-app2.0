@@ -142,7 +142,8 @@ export const bossMasterList = () => {
               text:
                 "When Brodie pounces, choose the space on Brodie's room tile that has the most figures on it, minions included, and move Brodie onto that space. If more than one space has an equal number of figures on it, Brodie will pounce on the space that contains the figure whose initiative card is highest on the initiative track. Roll once for the pounce’s initiative card. Each figure in that space must defend against that same attack separately. Brodie will pounce on the space he is already on if it contains the most figures or if no other spaces have figures on them."
             }
-          ]
+          ],
+          isBrodiePounces: true
         }
       ]
     },

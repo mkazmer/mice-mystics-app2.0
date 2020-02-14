@@ -31,11 +31,9 @@ const CreatureCard = ({ creature, removeCreature, updateMovement }) => {
           </div>
         </div>
         <div className="info">
-          <h5 className={`${creature.name === 'Brodie Pounces' ? 'fill' : ''}`}>Movement</h5>
+          <h5 className={`${creature.isBrodiePounces ? 'fill' : ''}`}>Movement</h5>
           <button className="action-die-button" onClick={() => updateMovement(creature)}>
-            {creature.name === 'Brodie Pounces' ? null : (
-              <RenderMovementDice rolls={creature.movementRoll} />
-            )}
+            {creature.isBrodiePounces ? null : <RenderMovementDice rolls={creature.movementRoll} />}
           </button>
         </div>
         <div className="info">

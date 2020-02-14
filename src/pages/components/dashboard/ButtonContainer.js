@@ -2,11 +2,11 @@ import React from 'react'
 
 import './ButtonContainer.scss'
 
-const ButtonContainer = ({ openCloseCreatureEdit }) => {
+const ButtonContainer = ({ openCloseCreatureEdit, rollAllMovement }) => {
   return (
     <div className="ButtonContainer">
       <div className="buttons rolls">
-        <button>
+        <button onClick={() => rollAllMovement()}>
           Roll All <div className="movement">Movement</div>
         </button>
         <button>

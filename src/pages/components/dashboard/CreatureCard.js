@@ -6,7 +6,6 @@ import Ability from './Ability'
 import './CreatureCard.scss'
 
 const CreatureCard = ({ creature, removeCreature, updateMovement }) => {
-  console.log(creature)
   return (
     <div className="CreatureCard">
       <div
@@ -33,14 +32,10 @@ const CreatureCard = ({ creature, removeCreature, updateMovement }) => {
         </div>
         <div className="info">
           <h5 className={`${creature.name === 'Brodie Pounces' ? 'fill' : ''}`}>Movement</h5>
-          <button
-            className={`action-die-button ${creature.name === 'Brodie Pounces' ? 'hidden' : ''}`}
-            onClick={() => updateMovement(creature.id)}
-          >
-            <RenderMovementDice
-              rolls={creature.movementRoll}
-              isPounce={creature.name === 'Brodie Pounces'}
-            />
+          <button className="action-die-button" onClick={() => updateMovement(creature)}>
+            {creature.name === 'Brodie Pounces' ? null : (
+              <RenderMovementDice rolls={creature.movementRoll} />
+            )}
           </button>
         </div>
         <div className="info">

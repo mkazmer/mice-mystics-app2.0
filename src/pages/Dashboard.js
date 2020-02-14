@@ -58,23 +58,37 @@ class Dashboard extends Component {
     this.setState(this.state)
   }
 
-  updateMovement = id => {
-    const roll = rollMovement
+  updateMovement = creature => {
+    const roll = creature.movementRoll.map(() => rollMovement())
     this.setState({
       activeCreatures: {
-        [`${id}`]: {
-          ...this.state.activeCreatures[`${id}`],
+        ...this.state.activeCreatures,
+        [`${creature.id}`]: {
+          ...this.state.activeCreatures[`${creature.id}`],
           movementRoll: roll
         }
       }
     })
-    console.log(this.state)
+  }
+
+  rollAllMovement = () => {
+    const rolls = Object.keys(this.state.activeCreatures).reduce((prev, cur) => {
+      prev[`${cur}`].movementRoll = prev[`${cur}`].movementRoll.map(() => rollMovement())
+      return prev
+    }, this.state.activeCreatures)
+
+    this.setState({
+      activeCreatures: rolls
+    })
   }
 
   render() {
     return (
       <div className="Dashboard">
-        <ButtonContainer openCloseCreatureEdit={this.openCloseCreatureEdit} />
+        <ButtonContainer
+          openCloseCreatureEdit={this.openCloseCreatureEdit}
+          rollAllMovement={this.rollAllMovement}
+        />
         {this.state.addMinions ? (
           <MinionsAdd
             minionsMaster={this.props.minionsMaster}

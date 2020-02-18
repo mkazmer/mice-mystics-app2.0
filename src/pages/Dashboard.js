@@ -58,14 +58,21 @@ class Dashboard extends Component {
     this.setState(this.state)
   }
 
-  updateMovement = creature => {
-    const roll = creature.movementRoll.map(() => rollMovement())
+  updateRoll = (creature, type) => {
+    let roll = []
+    if (type === 'movementRoll') {
+      roll = creature.movementRoll.map(() => rollMovement())
+    } else if (type === 'attackRoll') {
+      roll = creature.attackRoll.map(() => rollAttack(creature.attack))
+    } else if (type === 'defenseRoll') {
+      roll = creature.defenseRoll.map(() => rollDefense(creature.isSkitterClak))
+    }
     this.setState({
       activeCreatures: {
         ...this.state.activeCreatures,
         [`${creature.id}`]: {
           ...this.state.activeCreatures[`${creature.id}`],
-          movementRoll: roll
+          [`${type}`]: roll
         }
       }
     })
@@ -73,7 +80,9 @@ class Dashboard extends Component {
 
   rollAllMovement = () => {
     const rolls = Object.keys(this.state.activeCreatures).reduce((prev, cur) => {
-      prev[`${cur}`].movementRoll = prev[`${cur}`].movementRoll.map(() => rollMovement())
+      if (!prev[`${cur}`].isBrodiePounces) {
+        prev[`${cur}`].movementRoll = prev[`${cur}`].movementRoll.map(() => rollMovement())
+      }
       return prev
     }, this.state.activeCreatures)
 
@@ -94,7 +103,6 @@ class Dashboard extends Component {
             minionsMaster={this.props.minionsMaster}
             openCloseCreatureEdit={this.openCloseCreatureEdit}
             addMinionsToDash={this.addMinionsToDash}
-            removeCreature={this.removeCreature}
           />
         ) : null}
         {this.state.addBoss ? (
@@ -112,7 +120,7 @@ class Dashboard extends Component {
                 key={cId}
                 creature={creature}
                 removeCreature={this.removeCreature}
-                updateMovement={this.updateMovement}
+                updateRoll={this.updateRoll}
               />
             )
           })}

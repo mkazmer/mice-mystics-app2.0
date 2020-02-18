@@ -5,7 +5,7 @@ import RenderActionDice from '../dice/RenderActionDice'
 import Ability from './Ability'
 import './CreatureCard.scss'
 
-const CreatureCard = ({ creature, removeCreature, updateMovement }) => {
+const CreatureCard = ({ creature, removeCreature, updateRoll }) => {
   return (
     <div className="CreatureCard">
       <div
@@ -32,19 +32,22 @@ const CreatureCard = ({ creature, removeCreature, updateMovement }) => {
         </div>
         <div className="info">
           <h5 className={`${creature.isBrodiePounces ? 'fill' : ''}`}>Movement</h5>
-          <button className="action-die-button" onClick={() => updateMovement(creature)}>
+          <button
+            className="action-die-button"
+            onClick={() => updateRoll(creature, 'movementRoll')}
+          >
             {creature.isBrodiePounces ? null : <RenderMovementDice rolls={creature.movementRoll} />}
           </button>
         </div>
         <div className="info">
           <h5>Attack</h5>
-          <button className="action-die-button">
+          <button className="action-die-button" onClick={() => updateRoll(creature, 'attackRoll')}>
             <RenderActionDice rolls={creature.attackRoll} type="attack" />
           </button>
         </div>
         <div className="info">
           <h5>Defense</h5>
-          <button className="action-die-button">
+          <button className="action-die-button" onClick={() => updateRoll(creature, 'defenseRoll')}>
             <RenderActionDice rolls={creature.defenseRoll} type="defense" />
           </button>
         </div>

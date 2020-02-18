@@ -21,7 +21,7 @@ const initializeCount = bossMaster => {
   return count
 }
 
-const BossAdd = ({ bossMaster, openCloseCreatureEdit, addBossToDash, activeCreatures }) => {
+const BossAdd = ({ bossMaster, openCloseCreatureEdit, addBossToDash }) => {
   const [creatureCount] = useState(initializeCount(bossMaster))
 
   return (

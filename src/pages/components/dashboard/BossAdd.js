@@ -17,7 +17,6 @@ const initializeCount = bossMaster => {
       initiativeCards: initiativeCards
     }
   })
-  console.log(count)
   return count
 }
 

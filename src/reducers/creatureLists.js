@@ -197,7 +197,8 @@ export const bossMasterList = () => {
               text:
                 'When Skitter-Clak rolls defense, all shields with success star rolled count as 2 successfull blocks'
             }
-          ]
+          ],
+          isSkitterClak: true
         }
       ]
     },

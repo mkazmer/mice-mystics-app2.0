@@ -2,7 +2,12 @@ import React from 'react'
 
 import './ButtonContainer.scss'
 
-const ButtonContainer = ({ openCloseCreatureEdit, rollAllMovement, rollAllAttack }) => {
+const ButtonContainer = ({
+  openCloseCreatureEdit,
+  rollAllMovement,
+  rollAllAttack,
+  rollAllDefense
+}) => {
   return (
     <div className="ButtonContainer">
       <div className="buttons rolls">
@@ -12,7 +17,7 @@ const ButtonContainer = ({ openCloseCreatureEdit, rollAllMovement, rollAllAttack
         <button onClick={() => rollAllAttack()}>
           Roll All <div className="attack">Attack</div>
         </button>
-        <button>
+        <button onClick={() => rollAllDefense()}>
           Roll All <div className="defense">Defense</div>
         </button>
       </div>

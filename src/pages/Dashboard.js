@@ -103,6 +103,18 @@ class Dashboard extends Component {
     })
   }
 
+  rollAllDefense = () => {
+    const rolls = Object.keys(this.state.activeCreatures).reduce((prev, cur) => {
+      let isSkitterClack = prev[`${cur}`].isSkitterClak
+      prev[`${cur}`].defenseRoll = prev[`${cur}`].defenseRoll.map(() => rollDefense(isSkitterClack))
+      return prev
+    }, this.state.activeCreatures)
+
+    this.setState({
+      activeCreatures: rolls
+    })
+  }
+
   render() {
     return (
       <div className="Dashboard">
@@ -110,6 +122,7 @@ class Dashboard extends Component {
           openCloseCreatureEdit={this.openCloseCreatureEdit}
           rollAllMovement={this.rollAllMovement}
           rollAllAttack={this.rollAllAttack}
+          rollAllDefense={this.rollAllDefense}
         />
         {this.state.addMinions ? (
           <MinionsAdd

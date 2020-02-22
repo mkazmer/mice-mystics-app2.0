@@ -115,6 +115,15 @@ class Dashboard extends Component {
     })
   }
 
+  clearAll = () => {
+    const allClear = Object.keys(this.state.activeCreatures).reduce((prev, cur) => {
+      console.log(cur)
+      return prev
+    }, this.state.activeCreatures)
+
+    console.log(allClear)
+  }
+
   render() {
     return (
       <div className="Dashboard">

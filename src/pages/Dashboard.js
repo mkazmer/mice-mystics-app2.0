@@ -117,11 +117,17 @@ class Dashboard extends Component {
 
   clearAll = () => {
     const allClear = Object.keys(this.state.activeCreatures).reduce((prev, cur) => {
-      console.log(cur)
+      if (!prev[`${cur}`].isBrodiePounces) {
+        prev[`${cur}`].movementRoll = prev[`${cur}`].movementRoll.map(() => null)
+      }
+      prev[`${cur}`].attackRoll = prev[`${cur}`].attackRoll.map(() => 'none')
+      prev[`${cur}`].defenseRoll = prev[`${cur}`].defenseRoll.map(() => 'none')
       return prev
     }, this.state.activeCreatures)
 
-    console.log(allClear)
+    this.setState({
+      activeCreatures: allClear
+    })
   }
 
   render() {

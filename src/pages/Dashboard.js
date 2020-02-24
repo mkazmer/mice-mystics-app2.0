@@ -132,6 +132,7 @@ class Dashboard extends Component {
           rollAllMovement={this.rollAllMovement}
           rollAllAttack={this.rollAllAttack}
           rollAllDefense={this.rollAllDefense}
+          clearAll={this.clearAll}
         />
         {this.state.addMinions ? (
           <MinionsAdd

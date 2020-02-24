@@ -6,7 +6,8 @@ const ButtonContainer = ({
   openCloseCreatureEdit,
   rollAllMovement,
   rollAllAttack,
-  rollAllDefense
+  rollAllDefense,
+  clearAll
 }) => {
   return (
     <div className="ButtonContainer">
@@ -36,7 +37,7 @@ const ButtonContainer = ({
         >
           Add <div className="creature">Boss</div>
         </button>
-        <button>
+        <button onClick={() => clearAll()}>
           <div className="defeat-all">Clear Rolls</div>
         </button>
       </div>

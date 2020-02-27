@@ -7,18 +7,42 @@ const ButtonContainer = ({
   rollAllMovement,
   rollAllAttack,
   rollAllDefense,
+  clearAllMovement,
+  clearAllAttack,
+  clearAllDefense,
   clearAll
 }) => {
   return (
     <div className="ButtonContainer">
       <div className="buttons rolls">
-        <button onClick={() => rollAllMovement()}>
+        <button
+          onClick={() => {
+            clearAllMovement()
+            setTimeout(() => {
+              rollAllMovement()
+            }, 200)
+          }}
+        >
           Roll All <div className="movement">Movement</div>
         </button>
-        <button onClick={() => rollAllAttack()}>
+        <button
+          onClick={() => {
+            clearAllAttack()
+            setTimeout(() => {
+              rollAllAttack()
+            }, 200)
+          }}
+        >
           Roll All <div className="attack">Attack</div>
         </button>
-        <button onClick={() => rollAllDefense()}>
+        <button
+          onClick={() => {
+            clearAllDefense()
+            setTimeout(() => {
+              rollAllDefense()
+            }, 200)
+          }}
+        >
           Roll All <div className="defense">Defense</div>
         </button>
       </div>

@@ -115,12 +115,32 @@ class Dashboard extends Component {
     })
   }
 
-  clearAll = () => {
+  clearAllMovement = () => {
     const allClear = Object.keys(this.state.activeCreatures).reduce((prev, cur) => {
       if (!prev[`${cur}`].isBrodiePounces) {
         prev[`${cur}`].movementRoll = prev[`${cur}`].movementRoll.map(() => null)
       }
+      return prev
+    }, this.state.activeCreatures)
+
+    this.setState({
+      activeCreatures: allClear
+    })
+  }
+
+  clearAllAttack = () => {
+    const allClear = Object.keys(this.state.activeCreatures).reduce((prev, cur) => {
       prev[`${cur}`].attackRoll = prev[`${cur}`].attackRoll.map(() => 'none')
+      return prev
+    }, this.state.activeCreatures)
+
+    this.setState({
+      activeCreatures: allClear
+    })
+  }
+
+  clearAllDefense = () => {
+    const allClear = Object.keys(this.state.activeCreatures).reduce((prev, cur) => {
       prev[`${cur}`].defenseRoll = prev[`${cur}`].defenseRoll.map(() => 'none')
       return prev
     }, this.state.activeCreatures)
@@ -128,6 +148,12 @@ class Dashboard extends Component {
     this.setState({
       activeCreatures: allClear
     })
+  }
+
+  clearAll = () => {
+    this.clearAllMovement()
+    this.clearAllAttack()
+    this.clearAllDefense()
   }
 
   render() {
@@ -138,6 +164,9 @@ class Dashboard extends Component {
           rollAllMovement={this.rollAllMovement}
           rollAllAttack={this.rollAllAttack}
           rollAllDefense={this.rollAllDefense}
+          clearAllMovement={this.clearAllMovement}
+          clearAllAttack={this.clearAllAttack}
+          clearAllDefense={this.clearAllDefense}
           clearAll={this.clearAll}
         />
         {this.state.addMinions ? (

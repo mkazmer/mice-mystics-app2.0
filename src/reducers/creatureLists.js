@@ -125,7 +125,8 @@ export const bossMasterList = () => {
               text:
                 "When Brodie chases, roll 2 action dice and total the numbers. The result is how far Brodie is moved on that turn. Move Brodie along the shortest path toward the closest mouse that is not already on Brodie's space. If 2 or more mice are an equal distance away, Brodie will move toward the one that is highest on the initiative track. If there are multiple shortest paths, the players can decide which path Brodie will take. If all active mice are on the same space as Brodie when he starts his chase, he will not move at all. If Brodie has any movement points left after reaching the closest mouse, continue moving Brodie toward the next closest mouse following all the rules above. Once Brodie is done moving, roll a number of action dice equal to the battle value on Brodie's chase initiative card. All figures that are on spaces that Brodie moved along on this turn (including his start and end spaces) are affected by that attack. (Only 1 attack roll is made each time Brodie chases, all affected figures must defend against that 1 roll separately.)"
             }
-          ]
+          ],
+          isBrodieChases: true
         },
         {
           id: 'brodie_pounces',

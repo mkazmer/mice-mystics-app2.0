@@ -4,10 +4,10 @@ export const rollMovement = () => {
 }
 
 //Calculates Ranged & Melee Attack Roll (returns cheese, bow, sword or blank)
-export const rollAttack = type => {
+export const rollAttack = (type, isBrodie) => {
   const roll = Math.floor(Math.random() * 6)
 
-  if (roll === 0) return 'cheese'
+  if (roll === 0 && !isBrodie) return 'cheese'
 
   if ((roll === 1 || roll === 2) && type === 'ranged') {
     return 'bow'
@@ -18,10 +18,10 @@ export const rollAttack = type => {
 }
 
 //Calculates Defense Roll (returns cheese, shield, blank or possible double-shield if rolling for Skitter-Clak)
-export const rollDefense = isSkitterClak => {
+export const rollDefense = (isBrodie, isSkitterClak) => {
   const roll = Math.floor(Math.random() * 6)
 
-  if (roll === 0) return 'cheese'
+  if (roll === 0 && !isBrodie) return 'cheese'
 
   if (roll === 1 && isSkitterClak) {
     return 'double-shield'

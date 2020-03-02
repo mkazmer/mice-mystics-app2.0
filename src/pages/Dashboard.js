@@ -60,12 +60,13 @@ class Dashboard extends Component {
 
   updateRoll = (creature, type) => {
     let roll = []
+    let isBrodie = creature.isBrodieChases || creature.isBrodiePounces
     if (type === 'movementRoll') {
       roll = creature.movementRoll.map(() => rollMovement())
     } else if (type === 'attackRoll') {
-      roll = creature.attackRoll.map(() => rollAttack(creature.attack))
+      roll = creature.attackRoll.map(() => rollAttack(creature.attack, isBrodie))
     } else if (type === 'defenseRoll') {
-      roll = creature.defenseRoll.map(() => rollDefense(creature.isSkitterClak))
+      roll = creature.defenseRoll.map(() => rollDefense(isBrodie, creature.isSkitterClak))
     }
     this.setState({
       activeCreatures: {
@@ -94,7 +95,8 @@ class Dashboard extends Component {
   rollAllAttack = () => {
     const rolls = Object.keys(this.state.activeCreatures).reduce((prev, cur) => {
       let type = prev[`${cur}`].attack
-      prev[`${cur}`].attackRoll = prev[`${cur}`].attackRoll.map(() => rollAttack(type))
+      let isBrodie = prev[`${cur}`].isBrodieChases || prev[`${cur}`].isBrodiePounces
+      prev[`${cur}`].attackRoll = prev[`${cur}`].attackRoll.map(() => rollAttack(type, isBrodie))
       return prev
     }, this.state.activeCreatures)
 
@@ -105,13 +107,30 @@ class Dashboard extends Component {
 
   rollAllDefense = () => {
     const rolls = Object.keys(this.state.activeCreatures).reduce((prev, cur) => {
+      let isBrodie = prev[`${cur}`].isBrodieChases || prev[`${cur}`].isBrodiePounces
       let isSkitterClack = prev[`${cur}`].isSkitterClak
-      prev[`${cur}`].defenseRoll = prev[`${cur}`].defenseRoll.map(() => rollDefense(isSkitterClack))
+      prev[`${cur}`].defenseRoll = prev[`${cur}`].defenseRoll.map(() =>
+        rollDefense(isBrodie, isSkitterClack)
+      )
       return prev
     }, this.state.activeCreatures)
 
     this.setState({
       activeCreatures: rolls
+    })
+  }
+
+  clearIndividual = (creature, type) => {
+    let roll = creature[`${type}`].map(() => (type === 'movementRoll' ? null : 'none'))
+
+    this.setState({
+      activeCreatures: {
+        ...this.state.activeCreatures,
+        [`${creature.id}`]: {
+          ...this.state.activeCreatures[`${creature.id}`],
+          [`${type}`]: roll
+        }
+      }
     })
   }
 
@@ -192,6 +211,7 @@ class Dashboard extends Component {
                 creature={creature}
                 removeCreature={this.removeCreature}
                 updateRoll={this.updateRoll}
+                clearIndividual={this.clearIndividual}
               />
             )
           })}

@@ -5,7 +5,7 @@ import RenderActionDice from '../dice/RenderActionDice'
 import Ability from './Ability'
 import './CreatureCard.scss'
 
-const CreatureCard = ({ creature, removeCreature, updateRoll }) => {
+const CreatureCard = ({ creature, removeCreature, updateRoll, clearIndividual }) => {
   return (
     <div className="CreatureCard">
       <div
@@ -34,20 +34,41 @@ const CreatureCard = ({ creature, removeCreature, updateRoll }) => {
           <h5 className={`${creature.isBrodiePounces ? 'fill' : ''}`}>Movement</h5>
           <button
             className="action-die-button"
-            onClick={() => updateRoll(creature, 'movementRoll')}
+            onClick={() => {
+              clearIndividual(creature, 'movementRoll')
+              setTimeout(() => {
+                updateRoll(creature, 'movementRoll')
+              }, 200)
+            }}
           >
             {creature.isBrodiePounces ? null : <RenderMovementDice rolls={creature.movementRoll} />}
           </button>
         </div>
         <div className="info">
           <h5>Attack</h5>
-          <button className="action-die-button" onClick={() => updateRoll(creature, 'attackRoll')}>
+          <button
+            className="action-die-button"
+            onClick={() => {
+              clearIndividual(creature, 'attackRoll')
+              setTimeout(() => {
+                updateRoll(creature, 'attackRoll')
+              }, 200)
+            }}
+          >
             <RenderActionDice rolls={creature.attackRoll} type="attack" />
           </button>
         </div>
         <div className="info">
           <h5>Defense</h5>
-          <button className="action-die-button" onClick={() => updateRoll(creature, 'defenseRoll')}>
+          <button
+            className="action-die-button"
+            onClick={() => {
+              clearIndividual(creature, 'defenseRoll')
+              setTimeout(() => {
+                updateRoll(creature, 'defenseRoll')
+              }, 200)
+            }}
+          >
             <RenderActionDice rolls={creature.defenseRoll} type="defense" />
           </button>
         </div>

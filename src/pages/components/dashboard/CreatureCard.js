@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import RenderMovementDice from '../dice/RenderMovementDice'
 import RenderActionDice from '../dice/RenderActionDice'
@@ -6,6 +6,8 @@ import Ability from './Ability'
 import './CreatureCard.scss'
 
 const CreatureCard = ({ creature, removeCreature, updateRoll, clearIndividual }) => {
+  const [heart, toggleHeart] = useState(true)
+
   return (
     <div className="CreatureCard">
       <div
@@ -17,11 +19,19 @@ const CreatureCard = ({ creature, removeCreature, updateRoll, clearIndividual })
         <div className="name-container">
           <div className="name">
             <div>{creature.name}</div>
+            <div className="heart-container">
+              <button
+                className={`heart-button ${heart ? 'red' : ''}`}
+                onClick={() => toggleHeart(!heart)}
+              >
+                <div className="heart"></div>
+              </button>
+            </div>
+          </div>
+          <div className="creature-details">
             <button className="defeat-button" onClick={() => removeCreature(creature.id)}>
               X
             </button>
-          </div>
-          <div className="creature-details">
             <h5 className={`id ${creature.isBoss ? 'hidden' : ''}`}>{creature.id}</h5>
             <div className="abilities">
               {creature.abilities.map(a => {

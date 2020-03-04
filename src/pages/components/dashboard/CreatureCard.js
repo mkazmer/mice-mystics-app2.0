@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 
+import DamageCounter from './DamageCounter'
 import RenderMovementDice from '../dice/RenderMovementDice'
 import RenderActionDice from '../dice/RenderActionDice'
 import Ability from './Ability'
 import './CreatureCard.scss'
 
 const CreatureCard = ({ creature, removeCreature, updateRoll, clearIndividual }) => {
-  const [heart, toggleHeart] = useState(true)
-
   return (
     <div className="CreatureCard">
       <div
@@ -20,12 +19,9 @@ const CreatureCard = ({ creature, removeCreature, updateRoll, clearIndividual })
           <div className="name">
             <div>{creature.name}</div>
             <div className="heart-container">
-              <button
-                className={`heart-button ${heart ? 'red' : ''}`}
-                onClick={() => toggleHeart(!heart)}
-              >
-                <div className="heart"></div>
-              </button>
+              {Array.from(Array(creature.health), (e, i) => {
+                return <DamageCounter />
+              })}
             </div>
           </div>
           <div className="creature-details">

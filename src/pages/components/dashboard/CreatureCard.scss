@@ -50,12 +50,12 @@
 
           .heart {
             position: relative;
-            right: px;
+            right: 6px;
             height: 12px;
             width: 12px;
             border-radius: 50%;
-            border: solid white 1px;
-            background-color: rgb(200, 0, 0);
+            border: solid rgb(20, 20, 20) 1px;
+            background-color: rgb(100, 100, 100);
 
             &::before {
               content: '';
@@ -66,8 +66,8 @@
               height:12px;
               width: 12px;
               border-radius: 50%;
-              border: solid white 1px;
-              background-color: rgb(200, 0, 0);
+              border: solid rgb(20, 20, 20) 1px;
+              background-color: rgb(100, 100, 100);
             }
 
             &::after {
@@ -80,18 +80,28 @@
               width: 15px;
               transform: rotate(45deg);
               border-radius: 50% 0 0 0;
-              border-bottom: solid white 1px;
+              border-bottom: solid rgb(20, 20, 20)1px;
+              border-right: solid rgb(20, 20, 20) 1px;
+              background-color: rgb(100, 100, 100);
+            }
+          }
+
+          .red, .red::before {
+            border: solid white 1px;
+            background-color: rgb(200, 0, 0);
+          }
+
+          .red::after {
+            border-bottom: solid white 1px;
               border-right: solid white 1px;
               background-color: rgb(200, 0, 0);
-            }
           }
         }
       }
 
       .defeat-button {
-        position: absolute;
-        top: 0;
-        left: 0;
+        float: right;
+        margin-bottom: 15px;
         height: 18px;
         background: none;
         box-shadow: 2px 2px 4px rgba(99, 99, 99, 0.75);
@@ -99,7 +109,6 @@
 
       .creature-details {
         text-align: right;
-        margin-top: 34px;
 
         .id {
           font-family: $font-fam-base;

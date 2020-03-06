@@ -19,7 +19,7 @@ const CreatureCard = ({ creature, removeCreature, updateRoll, clearIndividual })
           <div className="name">
             <div>{creature.name}</div>
             <div className="heart-container">
-              {Array.from(Array(creature.health), (e, i) => {
+              {Array.from(Array(creature.health), () => {
                 return <DamageCounter />
               })}
             </div>

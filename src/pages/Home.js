@@ -5,14 +5,14 @@ import './Home.scss'
 const Home = () => {
   return (
     <div className="Home">
-      <div>
+      <div className="header">
         <h1>{'Mice & Mystics App'}</h1>
         <h4>Created by Mike Kazmer</h4>
         <p>
           I created this application as a way to calcuate minion and boss rolls quickly and easily.
         </p>
       </div>
-      <div>
+      <div className="dashboard-details">
         <h2>Dashboard</h2>
         <figure>
           <div>
@@ -57,7 +57,7 @@ const Home = () => {
           <figcaption>Minion Creature Card - Spider </figcaption>
         </figure>
       </div>
-      <div>
+      <div className="campaign-details">
         <h2>Campaigns</h2>
         <p>Under Construction....</p>
       </div>

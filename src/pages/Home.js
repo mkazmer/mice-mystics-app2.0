@@ -9,7 +9,7 @@ const Home = () => {
         <h1>{'Mice & Mystics App'}</h1>
         <h4>Created by Mike Kazmer</h4>
         <p>
-          I created this application as a way to calcuate minion and boss rolls quickly and easily.
+          This application is meant to be used with the board game Mice and Mystics.  It allows the user to calcuate minion and boss rolls more quickly and easily.
         </p>
       </div>
       <div className="dashboard-details">

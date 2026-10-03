@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           String     @id @default(cuid())
+  email        String     @unique
+  displayName  String
+  passwordHash String
+  createdAt    DateTime   @default(now())
+  sessions     Session[]
+  campaigns    Campaign[]
+}
+
+// Server-side sessions: the cookie holds a random token, the DB stores its SHA-256 hash
+model Session {
+  id        String   @id // sha256(token)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+enum CampaignStatus {
+  ACTIVE
+  COMPLETED
+  ABANDONED
+}
+
+model Campaign {
+  id             String         @id @default(cuid())
+  userId         String
+  user           User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name           String
+  status         CampaignStatus @default(ACTIVE)
+  currentChapter Int            @default(1)
+  notes          String?
+  heroes         Hero[]
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  completedAt    DateTime?
+
+  @@index([userId])
+}
+
+model Hero {
+  id         String     @id @default(cuid())
+  campaignId String
+  campaign   Campaign   @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  name       String // e.g. "Filch", "Nez"
+  maxHealth  Int
+  health     Int
+  cheese     Int        @default(0)
+  level      Int        @default(1)
+  items      HeroItem[]
+}
+
+enum ItemSlot {
+  WEAPON
+  OFFHAND
+  ARMOR
+  ACCESSORY
+  PACK
+}
+
+model HeroItem {
+  id       String   @id @default(cuid())
+  heroId   String
+  hero     Hero     @relation(fields: [heroId], references: [id], onDelete: Cascade)
+  name     String
+  slot     ItemSlot
+  equipped Boolean  @default(false)
+}

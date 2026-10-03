@@ -1,0 +1,107 @@
+@use 'sass:color';
+@use 'variables' as *;
+
+body {
+  margin: 0;
+  font-family: $font-fam-primary, $font-fam-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $mnm-tan;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.App {
+  text-align: center;
+
+  ul {
+    list-style-type: none;
+  }
+}
+
+.AppContainer {
+  width: calc(100vw - 20px);
+  max-width: 1220px;
+  min-height: calc(100vh - 170px);
+  padding: 10px;
+
+  @media (min-width: 600px) {
+    width: calc(100vw - 170px);
+    margin-left: 150px;
+    min-height: calc(100vh - 95px);
+  }
+
+  @media (min-width: 1370px) {
+    margin-left: calc(((100vw - 1370px) / 2) + 150px);
+  }
+}
+
+// Shared panel + form styles (auth pages, campaigns)
+.panel {
+  max-width: 420px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: left;
+  background-color: color.adjust($mnm-tan, $lightness: -4%);
+  border: solid color.adjust($mnm-gray, $lightness: 30%) 1px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(128, 128, 128, 0.8);
+
+  h1,
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-weight: 600;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 8px;
+    font-family: $font-fam-base;
+    font-size: 16px; // prevents iOS zoom on focus
+    border: solid $mnm-gray 1px;
+    border-radius: 3px;
+  }
+}
+
+.btn {
+  padding: 8px 14px;
+  color: $mnm-white;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: $mnm-maroon;
+  border: solid $mnm-gray 1px;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  &.secondary {
+    background-color: color.adjust($mnm-gray, $lightness: 20%);
+  }
+}
+
+.form-error {
+  margin: 0;
+  color: $mnm-maroon;
+  font-family: $font-fam-base;
+  font-weight: 600;
+}

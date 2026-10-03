@@ -1,0 +1,22 @@
+@use 'sass:color';
+@use '../../styles/variables' as *;
+
+.Ability {
+  .ability-description {
+    display: none;
+    position: absolute;
+    text-align: center;
+    top: 20px;
+    right: 6px;
+    width: 150px;
+    padding: 10px;
+    background-color: color.adjust($mnm-gray, $lightness: -20%);
+    border-radius: 5px;
+  }
+
+  &:hover {
+    .ability-description {
+      display: block;
+    }
+  }
+}

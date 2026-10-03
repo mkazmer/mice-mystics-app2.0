@@ -1,0 +1,68 @@
+@use 'sass:color';
+@use '../../styles/variables' as *;
+
+.ButtonContainer {
+  max-width: 350px;
+  margin: auto;
+  padding: 0 10px;
+  background-color: color.adjust($mnm-tan, $lightness: -4%);
+  border: solid color.adjust($mnm-gray, $lightness: 30%) 1px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(128, 128, 128, .8);
+
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+
+    button {
+      width: 100px;
+      height: 40px;;
+      margin: 10px 0;
+      color: $mnm-white;
+      font-size: 14px;
+      font-weight: 600;
+      background-color: color.adjust($mnm-gray, $lightness: 20%);
+      border: solid $mnm-gray 1px;
+      border-radius: 3px;
+      box-shadow: 1px 1px 1px rgba(128, 128, 128, .8);
+
+      div {
+        font-weight: 900;
+        text-shadow:
+        -1px -1px 0 $mnm-white,  
+         1px -1px 0 $mnm-white,
+         -1px 1px 0 $mnm-white,
+          1px 1px 0 $mnm-white;
+      }
+
+      .movement {
+        color: $mnm-green;
+      }
+
+      .attack {
+        color: $mnm-maroon;
+      }
+
+      .defense {
+        color: $mnm-blue;
+      }
+
+      .creature {
+        color: color.adjust($mnm-tan, $lightness: -30%);
+      }
+
+      .defeat-all {
+        color: black;
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .ButtonContainer{
+    position: fixed;
+    .buttons {
+      flex-direction: column;
+    }
+  }
+}
